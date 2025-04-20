@@ -1,2 +1,0 @@
-constraints:
-    - orientation: {sigs : [B, A], directions: [left]}
