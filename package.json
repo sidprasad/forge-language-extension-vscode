@@ -2,7 +2,7 @@
 	"name": "forge-language-server",
 	"description": "Forge Language Server",
 	"author": "Siddhartha Prasad",
-	"license": "",
+	"license": "MIT",
 	"version": "0.0.1",
 	"repository": {
 		"type": "git",
