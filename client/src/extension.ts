@@ -4,10 +4,6 @@ import { workspace, ExtensionContext, Diagnostic, DiagnosticSeverity, Diagnostic
 import { HintGenerator } from './hintgenerator';
 import { ensureForgeVersion } from './forge-utilities';
 
-import { CnDProcess } from './cndprocess';
-
-
-
 import {
 	LanguageClient,
 	LanguageClientOptions,
@@ -335,22 +331,8 @@ export async function activate(context: ExtensionContext) {
 		}
 	});
 
-	const killCnDProcessCommand = vscode.commands.registerCommand('forge.killCnDProcess', () => {
-        CnDProcess.killInstanceIfExists();
-        vscode.window.showInformationMessage('Cope and Drag process killed.');
-    });
-
-
-	// Check if the CnD server should be launched on activation
-	const config = vscode.workspace.getConfiguration('forge');
-	const launchCnD = config.get<boolean>('launchCnD', false);
-
-	if (launchCnD) {
-		const cndProcess = CnDProcess.getInstance();
-	}
-
 	context.subscriptions.push(runFile, stopRun, continueRun, enableLogging, disableLogging, halp, forgeEvalDiagnostics,
-		forgeOutput, halpOutput, forgeDocs, killCnDProcessCommand);
+		forgeOutput, halpOutput, forgeDocs);
 
 	subscribeToDocumentChanges(context, forgeEvalDiagnostics);
 
@@ -397,9 +379,6 @@ export async function activate(context: ExtensionContext) {
 }
 
 export function deactivate(): Thenable<void> | undefined {
-
-	CnDProcess.killInstanceIfExists();
-
 	let racket = RacketProcess.getInstance(forgeEvalDiagnostics, forgeOutput);
 	// kill racket process
 	racket.kill(false);

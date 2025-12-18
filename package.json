@@ -3,7 +3,7 @@
 	"description": "Forge Language Server",
 	"author": "Siddhartha Prasad",
 	"license": "",
-	"version": "3.6.11",
+	"version": "0.0.1",
 	"repository": {
 		"type": "git",
 		"url": ""
@@ -38,17 +38,6 @@
 					"light": "./client/images/icon.png",
 					"dark": "./client/images/icon.png"
 				}
-			},
-			{
-				"id": "cnd",
-				"aliases": [
-					"CnD",
-					"Cope and Drag"
-				],
-				"extensions": [
-					".cnd"
-				],
-				"configuration": ".client/cnd-configuration.json"
 			}
 		],
 		"grammars": [
@@ -56,11 +45,6 @@
 				"language": "forge",
 				"scopeName": "source.forge",
 				"path": "./client/syntaxes/forge.tmLanguage.json"
-			},
-			{
-				"language": "cnd",
-				"scopeName": "source.cnd",
-				"path": "./client/syntaxes/cnd.tmLanguage.json"
 			}
 		],
 		"configuration": {
@@ -109,12 +93,6 @@
 					],
 					"default": "On",
 					"description": "Determines the level of thoroughness feedback given by Toadus Ponens."
-				},
-				"forge.launchCnD": {
-					"scope": "resource",
-					"type": "boolean",
-					"default": true,
-					"description": "Determines if the Cope and Drag server should be launched on activation."
 				},
 				"forge.toadusSource": {
 					"scope": "resource",
@@ -165,10 +143,6 @@
 				"command": "forge.openDocumentation",
 				"title": "Forge Docs",
 				"icon": "$(book)"
-			},
-			{
-				"command": "forge.killCnDProcess",
-				"title": "Kill Cope and Drag Process"
 			}
 		],
 		"menus": {
@@ -212,7 +186,6 @@
 		}
 	},
 	"scripts": {
-			"fetch-cnd": "node ./fetch-cnd.js",
 			"vscode:prepublish": "npm run compile",
 			"compile": "tsc -b",
 			"watch": "tsc -b -w",
@@ -223,7 +196,6 @@
 	"devDependencies": {
 		"@types/mocha": "^8.2.2",
 		"@types/node": "^12.12.0",
-		"@types/tcp-port-used": "^1.0.4",
 		"@typescript-eslint/eslint-plugin": "^4.23.0",
 		"@typescript-eslint/parser": "^4.23.0",
 		"@vscode/vsce": "^2.24.0",
@@ -238,7 +210,6 @@
 		"firebase-admin": "^11.4.1",
 		"forge-toadus-parser": "^1.2.2",
 		"glob": "^8.1.0",
-		"tcp-port-used": "^1.0.2",
 		"ts-node": "^10.9.2",
 		"vscode-languageserver": "^9.0.1",
 		"vscode-languageserver-textdocument": "^1.0.11"
