@@ -3,6 +3,7 @@
 		"module": "commonjs",
 		"target": "es2020",
 		"lib": ["ES2020", "dom"],
+		"typeRoots": ["./node_modules/@types", "../node_modules/@types"],
 		"outDir": "out",
 		"rootDir": "src",
 		"resolveJsonModule": true,
