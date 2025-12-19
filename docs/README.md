@@ -14,6 +14,7 @@ VS Code support for [Forge](https://forge-fm.org/).
 
 - Run Forge files with robust process management (Racket discovery, version checks, graceful stop).
 - LSP essentials: go to definition, hover, and document symbols.
+- **Intelligent code completion**: 60+ Forge keywords and 9 smart snippets for common patterns.
 - Syntax highlighting and language configuration for `.frg`.
 
 ## Quick start
@@ -28,6 +29,22 @@ VS Code support for [Forge](https://forge-fm.org/).
 - Diagnostics parsed into VS Code Problems with clickable links.
 - No shell wrappers for execution, which keeps behavior predictable and safer.
 - Friendly errors when Racket or Forge are missing or out of date.
+
+## Code Completion
+
+Smart, non-intrusive completions for Forge. Trigger with **Ctrl+Space** (Windows/Linux) or **Cmd+Space** (Mac), or let it appear naturally as you type.
+
+**Features:**
+- **60+ Keywords**: All Forge keywords (`sig`, `pred`, `fun`, `run`, `check`, `all`, `some`, `always`, etc.)
+- **9 Smart Snippets**: Common code patterns with tab-stop placeholders:
+  - `sig (snippet)` → Full signature declaration template
+  - `pred (snippet)` → Predicate with parameters
+  - `run (snippet)` → Run command with scope
+  - `test expect (snippet)` → Complete test block
+  - Quantifiers: `all (snippet)`, `some (snippet)`
+  - And more...
+- **Context-aware**: Skips completions inside comments and strings
+- **Helpful documentation**: Each item includes description and usage info
 
 ## Commands
 
