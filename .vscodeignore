@@ -1,15 +1,44 @@
+# Development files
 .vscode/**
+.vscode-test/**
+.github/**
 **/*.ts
+!client/src/encryption-util.ts
+!scripts/file-encryptor.ts
 **/*.map
 .gitignore
+.eslintrc.json
+
+# Build files
 **/tsconfig.json
 **/tsconfig.base.json
-contributing.md
-.travis.yml
+node_modules/**
 client/node_modules/**
+server/node_modules/**
 !client/node_modules/vscode-jsonrpc/**
 !client/node_modules/vscode-languageclient/**
 !client/node_modules/vscode-languageserver-protocol/**
 !client/node_modules/vscode-languageserver-types/**
 !client/node_modules/{minimatch,brace-expansion,concat-map,balanced-match}/**
 !client/node_modules/{semver,lru-cache,yallist}/**
+
+# Test files
+**/test/**
+**/testFixture/**
+client/src/test/**
+scripts/e2e.sh
+
+# Documentation
+contributing.md
+.travis.yml
+docs/**
+README.md
+!package.json
+
+# ANTLR grammar source files
+server/grammars/**/*.g4
+server/grammars/**/*.tokens
+server/grammars/**/*.interp
+
+# Scripts
+scripts/**
