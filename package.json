@@ -79,32 +79,6 @@
 					"type": "string",
 					"default": "3.3.0",
 					"description": "Minimum version of Forge required to run this extension."
-				},
-				"forge.feedbackStrategy": {
-					"scope": "resource",
-					"type": "string",
-					"enum": [
-						"Comprehensive",
-						"Per Test"
-					],
-					"default": "Comprehensive",
-					"description": "Feedback strategy used by Toadus Ponens. Comprehensive will provide feedback for the test suite as a whole, Per Test will provide feedback for each test."
-				},
-				"forge.thoroughnessFeedback": {
-					"scope": "resource",
-					"type": "string",
-					"enum": [
-						"Off",
-						"On"
-					],
-					"default": "On",
-					"description": "Determines the level of thoroughness feedback given by Toadus Ponens."
-				},
-				"forge.toadusSource": {
-					"scope": "resource",
-					"type": "string",
-					"default": "https://csci1710.github.io/2025/toadusponensfiles",
-					"description": "URL used by Toadus Ponens."
 				}
 			}
 		},
@@ -141,11 +115,6 @@
 				"icon": "$(eye)"
 			},
 			{
-				"command": "forge.halp",
-				"title": "Ask Toadus Ponens!",
-				"icon": "./client/images/toadus.svg"
-			},
-			{
 				"command": "forge.openDocumentation",
 				"title": "Forge Docs",
 				"icon": "$(book)"
@@ -177,11 +146,6 @@
 					"when": "forge.isLoggingEnabled && (editorLangId == forge)",
 					"command": "forge.disableLogging",
 					"group": "navigation"
-				},
-				{
-					"command": "forge.halp",
-					"when": "editorLangId == forge",
-					"group": "navigation@3"
 				},
 				{
 					"command": "forge.openDocumentation",

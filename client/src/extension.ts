@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { workspace, ExtensionContext, Diagnostic, DiagnosticSeverity, DiagnosticCollection, languages } from 'vscode';
-import { HintGenerator } from './hintgenerator';
 
 import {
 	LanguageClient,
@@ -19,8 +18,6 @@ import { v4 as uuidv4 } from 'uuid';
 let client: LanguageClient;
 
 const forgeOutput = vscode.window.createOutputChannel('Forge Output');
-const halpOutput = vscode.window.createOutputChannel('Toadus Ponens Output');
-
 
 const forgeEvalDiagnostics = vscode.languages.createDiagnosticCollection('Forge Eval');
 
@@ -280,57 +277,8 @@ export async function activate(context: ExtensionContext) {
 	});
 
 
-	const halp = vscode.commands.registerCommand('forge.halp', () => {
-		halpOutput.clear();
-		halpOutput.show();
-		const isLoggingEnabled = context.globalState.get<boolean>('forge.isLoggingEnabled', false);
-
-
-
-		if (!isLoggingEnabled) {
-			halpOutput.appendLine('❗🐸❗ I can only be used if logging is enabled.');
-			return;
-		}
-
-
-
-
-		const editor = vscode.window.activeTextEditor;
-
-		if (!editor) {
-			halpOutput.appendLine('❗🐸❗ No active editor. Please open a .frg file.');
-			return;
-		}
-		const document = editor.document;
-		const content = document.getText();
-		const fileName = document.fileName;
-
-		if (fileName.endsWith('.test.frg')) {
-			const h = new HintGenerator(logger, halpOutput);
-			h.generateHints(content, fileName)
-				.then((result) => {
-
-					try {
-						const documentData = textDocumentToLog(document, true);
-						documentData['halp_output'] = result;
-						logger.log_payload(documentData, LogLevel.INFO, Event.HALP_RESULT);
-
-						if (result.length > 0) {
-							halpOutput.appendLine(result);
-						}
-					}
-					finally {
-						halpOutput.appendLine('🐸 Toadus Ponens run ended 🐸');
-					}
-
-				});
-		} else {
-			halpOutput.appendLine('❗🐸❗ I can only analyze test (.test.frg) files.');
-		}
-	});
-
-	context.subscriptions.push(runFile, stopRun, continueRun, enableLogging, disableLogging, halp, forgeEvalDiagnostics,
-		forgeOutput, halpOutput, forgeDocs);
+	context.subscriptions.push(runFile, stopRun, continueRun, enableLogging, disableLogging, forgeEvalDiagnostics,
+		forgeOutput, forgeDocs);
 
 	subscribeToDocumentChanges(context, forgeEvalDiagnostics);
 

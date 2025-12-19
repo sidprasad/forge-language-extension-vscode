@@ -112,9 +112,8 @@ forge-language-extension-vscode/
 │   └── src/
 │       ├── extension.ts          # Extension activation, commands
 │       ├── forge-runner.ts       # Forge process management ⭐
-│       ├── hintgenerator.ts      # Toadus Ponens (educational tool)
 │       ├── logger.ts             # Telemetry
-│       └── forge-utilities.ts    # Helper functions
+│       └── test/                 # Client-side tests
 │
 ├── server/
 │   └── src/
@@ -136,9 +135,7 @@ forge-language-extension-vscode/
 ```json
 {
   "forge.racketPath": "",              // Auto-detect if empty
-  "forge.minVersion": "3.3.0",         // Minimum Forge version
-  "forge.feedbackStrategy": "...",     // Toadus Ponens config
-  "forge.toadusSource": "..."          // Toadus Ponens URL
+  "forge.minVersion": "3.3.0"          // Minimum Forge version
 }
 ```
 
@@ -147,7 +144,6 @@ forge-language-extension-vscode/
 - `forge.runFile` - Run current Forge file
 - `forge.stopRun` - Stop running process
 - `forge.continueRun` - Continue after Sterling
-- `forge.halp` - Invoke Toadus Ponens
 - `forge.openDocumentation` - Open Forge docs
 
 ## Extension Activation

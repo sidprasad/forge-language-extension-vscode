@@ -8,19 +8,18 @@
 [![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.74.0-blue?logo=visualstudiocode)](https://code.visualstudio.com/)
 [![Forge](https://img.shields.io/badge/Forge-%3E%3D3.3.0-ff6f00)](https://forge-fm.org/)
 
-Reliable VS Code support for the [Forge](https://forge-fm.org/) modeling language, focused on fast feedback and stable UX.
+VS Code support for [Forge](https://forge-fm.org/).
 
 ## Highlights
 
 - Run Forge files with robust process management (Racket discovery, version checks, graceful stop).
 - LSP essentials: go to definition, hover, and document symbols.
-- Toadus Ponens feedback commands with optional logging.
 - Syntax highlighting and language configuration for `.frg`.
 
 ## Quick start
 
 1. Install Racket and Forge: `raco pkg install forge`
-2. Install the extension from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=SiddharthaPrasad.forge-language-server).
+2. Install the extension from the 
 3. Open a `.frg` file and run `Forge: Run` (or click the Run button).
 
 ## UI/UX reliability
@@ -37,7 +36,6 @@ Reliable VS Code support for the [Forge](https://forge-fm.org/) modeling languag
 - `Forge: Continue Forge Run`
 - `Forge: Enable Logging`
 - `Forge: Disable Logging`
-- `Forge: Ask Toadus Ponens!`
 - `Forge: Forge Docs`
 
 ## Settings
@@ -46,9 +44,6 @@ Reliable VS Code support for the [Forge](https://forge-fm.org/) modeling languag
 | --- | --- | --- | --- |
 | `forge.racketPath` | string | `""` | Path to Racket executable. Leave empty to auto-detect. |
 | `forge.minVersion` | string | `"3.3.0"` | Minimum Forge version required. |
-| `forge.feedbackStrategy` | string | `"Comprehensive"` | Toadus Ponens feedback strategy. |
-| `forge.thoroughnessFeedback` | string | `"On"` | Toadus Ponens thoroughness feedback. |
-| `forge.toadusSource` | string | `https://csci1710.github.io/2025/toadusponensfiles` | Toadus Ponens source URL. |
 | `forgeLanguageServer.maxNumberOfProblems` | number | `100` | Max diagnostics produced by the server. |
 | `forgeLanguageServer.trace.server` | string | `"messages"` | LSP trace verbosity. |
 
