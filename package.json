@@ -92,7 +92,7 @@
 		"commands": [
 			{
 				"command": "forge.runFile",
-				"title": "Run",
+				"title": "Run Forge",
 				"icon": {
 					"light": "./client/images/run.svg",
 					"dark": "./client/images/run.svg"
@@ -105,7 +105,7 @@
 			},
 			{
 				"command": "forge.stopRun",
-				"title": "Stop",
+				"title": "Stop Forge",
 				"icon": {
 					"light": "./client/images/stop.svg",
 					"dark": "./client/images/stop.svg"
@@ -132,11 +132,11 @@
 				"icon": "$(output)"
 			}
 		],
-		"menus": {
-			"editor/title": [
-				{
-					"when": "editorLangId == forge",
-					"command": "forge.runFile",
+			"menus": {
+				"editor/title": [
+					{
+						"when": "editorLangId == forge",
+						"command": "forge.runFile",
 					"group": "navigation@0"
 				},
 				{
@@ -149,24 +149,24 @@
 					"command": "forge.continueRun",
 					"group": "navigation@2"
 				},
-				{
-					"command": "forge.enableLogging",
-					"when": "!forge.isLoggingEnabled && (editorLangId == forge)",
-					"group": "navigation"
-				},
-				{
-					"when": "forge.isLoggingEnabled && (editorLangId == forge)",
-					"command": "forge.disableLogging",
-					"group": "navigation"
-				},
-				{
-					"command": "forge.openDocumentation",
-					"when": "editorLangId == forge",
-					"group": "navigation"
-				}
-			]
-		}
-	},
+					{
+						"command": "forge.enableLogging",
+						"when": "!forge.isLoggingEnabled && (editorLangId == forge)",
+						"group": "navigation@3"
+					},
+					{
+						"when": "forge.isLoggingEnabled && (editorLangId == forge)",
+						"command": "forge.disableLogging",
+						"group": "navigation@3"
+					},
+					{
+						"command": "forge.openDocumentation",
+						"when": "editorLangId == forge",
+						"group": "navigation@4"
+					}
+				]
+			}
+		},
 	"scripts": {
 			"vscode:prepublish": "npm run compile",
 			"compile": "tsc -b",
