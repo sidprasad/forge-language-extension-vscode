@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, setDoc } from 'firebase/firestore/lite';
+import { initializeApp } from '@firebase/app';
+import { getFirestore, collection, doc, setDoc, initializeFirestore } from '@firebase/firestore/lite';
 const execSync = require('child_process').execSync;
 
 

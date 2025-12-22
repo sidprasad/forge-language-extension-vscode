@@ -3,7 +3,7 @@
 	"description": "Editor support for Forge FM",
 	"author": "Siddhartha Prasad",
 	"license": "MIT",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"repository": {
 		"type": "git",
 		"url": ""
@@ -20,8 +20,7 @@
 	},
 	"activationEvents": [
 		"onLanguage:forge",
-		"onCommand:forge.runFile",
-		"onCommand:forge.runSmokeTests"
+		"onCommand:forge.runFile"
 	],
 	"main": "./client/out/extension",
 	"contributes": {
@@ -139,11 +138,6 @@
 						"when": "editorLangId == forge",
 						"command": "forge.runFile",
 					"group": "navigation@0"
-				},
-				{
-					"when": "editorLangId == forge",
-					"command": "forge.runSmokeTests",
-					"group": "navigation@0.5"
 				},
 				{
 					"when": "editorLangId == forge",
